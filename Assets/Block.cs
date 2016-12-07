@@ -33,7 +33,8 @@ public class Block : MonoBehaviour {
         MCFace face = GetHitFace(hit);
         bool success = true;
         Vector3 newPosition = transform.position;
-        
+        float scale = (float)0.3;
+
         if (occupiedFaces.Contains(face))
             return false;
 
@@ -41,19 +42,19 @@ public class Block : MonoBehaviour {
         switch (face)
         {
             case MCFace.Up:
-                newPosition.y += 1;
+                newPosition.y += scale;
                 break;
             case MCFace.East:
-                newPosition.x += 1;
+                newPosition.x += scale;
                 break;
             case MCFace.West:
-                newPosition.x -= 1;
+                newPosition.x -= scale;
                 break;
             case MCFace.North:
-                newPosition.z += 1;
+                newPosition.z += scale;
                 break;
             case MCFace.South:
-                newPosition.z -= 1;
+                newPosition.z -= scale;
                 break;
             case MCFace.Down:
             case MCFace.None:
