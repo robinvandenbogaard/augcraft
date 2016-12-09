@@ -3,77 +3,20 @@ using System.Collections;
 
 public class Block : MonoBehaviour {
 
-    public GameObject cubePrefab;
-
-    public float buildCoolDown = 1f;
-    float coolDownRemaining = 0f;
-
-    ArrayList occupiedFaces = new ArrayList();
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+    public delegate void ClickAction(Block block, MCFace face);
+    public static event ClickAction OnBlockClicked;
+    
 	void Update () {
-
-        if (coolDownRemaining < 0 && DetectHit())
-        {
-            coolDownRemaining = buildCoolDown;
-        }
-        else
-        {
-            coolDownRemaining -= Time.deltaTime;
-        }
-
+        DetectHit();
     }
 
-    private bool DoHit(RaycastHit hit) {
+    private void DoHit(RaycastHit hit) {
         MCFace face = GetHitFace(hit);
-        bool success = true;
-        Vector3 newPosition = transform.position;
-        float scale = (float)0.3;
-
-        if (occupiedFaces.Contains(face))
-            return false;
-
-        Debug.Log("Face " + face+ " is available");
-        switch (face)
-        {
-            case MCFace.Up:
-                newPosition.y += scale;
-                break;
-            case MCFace.East:
-                newPosition.x += scale;
-                break;
-            case MCFace.West:
-                newPosition.x -= scale;
-                break;
-            case MCFace.North:
-                newPosition.z += scale;
-                break;
-            case MCFace.South:
-                newPosition.z -= scale;
-                break;
-            case MCFace.Down:
-            case MCFace.None:
-            default:
-                Debug.Log("Won't place a block on face "+face);
-                success = false;
-                break;
-        }
-
-        if (success)
-        {
-            occupiedFaces.Add(face);
-            Debug.Log("Placing Block on "+ face);
-            Instantiate(cubePrefab, newPosition, Quaternion.identity);
-        }
-        return success;
+        if (OnBlockClicked != null)
+            OnBlockClicked(this, face);
     }
 
-    private bool DetectHit()
+    private void DetectHit()
     {
         RaycastHit hit;
         Ray ray;
@@ -88,7 +31,7 @@ public class Block : MonoBehaviour {
                 
                 if (Physics.Raycast(ray, out hit))
                     if (hit.transform.gameObject == this.gameObject)
-                    return DoHit(hit);
+                    DoHit(hit);
             }
         }
 
@@ -98,24 +41,14 @@ public class Block : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.gameObject == this.gameObject)
-                    return DoHit(hit);
+                    DoHit(hit);
             }
         }
 
 #endif
-        return false;
     }
 
-    public enum MCFace
-    {
-        None,
-        Up,
-        Down,
-        East,
-        West,
-        North,
-        South
-    }
+
 
     public MCFace GetHitFace(RaycastHit hit)
     {
