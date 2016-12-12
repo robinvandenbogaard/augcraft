@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Block : MonoBehaviour {
 
@@ -8,6 +9,11 @@ public class Block : MonoBehaviour {
     
 	void Update () {
         DetectHit();
+    }
+
+    public void UpdateTextureTo(Texture texture)
+    {
+        GetComponent<Renderer>().material.mainTexture = texture;
     }
 
     private void DoHit(RaycastHit hit) {
