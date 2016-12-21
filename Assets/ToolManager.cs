@@ -9,7 +9,27 @@ public class ToolManager : MonoBehaviour {
 
 	void Start () {
         Block.OnBlockClicked += BlockGotClicked;
-	}
+        BlockSelectionManager.OnBuildToolSelected += SelectBuildTool;
+        BlockSelectionManager.OnDestroyToolSelected += SelectDestroyTool;
+        BlockSelectionManager.OnTextureChanged += SelectOtherTexture;
+
+    }
+
+    private void SelectOtherTexture(string newTextureToBuildWith)
+    {
+        //TODO implement
+    }
+
+    private void SelectDestroyTool()
+    {
+        currentTool = tools[1];
+    }
+
+    private void SelectBuildTool()
+    {
+        if (currentTool != tools[0])
+            currentTool = tools[0];
+    }
 
     void BlockGotClicked(Block block, MCFace face)
     {
