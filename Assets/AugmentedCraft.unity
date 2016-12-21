@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -234,6 +234,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 89053753}
+--- !u!1 &269532995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 269532996}
+  - component: {fileID: 269532997}
+  m_Layer: 0
+  m_Name: PaintTool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &269532996
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269532995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 705530907}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269532997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269532995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a4e0e3e3ec0e741a7a64ddae9dd72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDown: 0.25
+  texture: {fileID: 0}
 --- !u!1001 &307651655
 Prefab:
   m_ObjectHideFlags: 0
@@ -540,6 +582,32 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f7599dbce52bc84baa10b99f8086ce8, type: 2}
   m_IsPrefabParent: 0
+--- !u!21 &547617457
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: stones_scaledMaterial
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2a3f66deacb64602abbcd2289aeed23e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1001 &548091522
 Prefab:
   m_ObjectHideFlags: 0
@@ -888,6 +956,8 @@ MonoBehaviour:
   tools:
   - {fileID: 724546150}
   - {fileID: 1126812148}
+  - {fileID: 269532997}
+  rootTexturePath: minecraft-textures/minecraft/textures/
 --- !u!4 &705530907
 Transform:
   m_ObjectHideFlags: 0
@@ -900,6 +970,7 @@ Transform:
   m_Children:
   - {fileID: 724546149}
   - {fileID: 1126812149}
+  - {fileID: 269532996}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -946,6 +1017,7 @@ MonoBehaviour:
   coolDown: 0.25
   blockPrefab: {fileID: 1000010750338972, guid: 1f7599dbce52bc84baa10b99f8086ce8,
     type: 2}
+  currentTexture: {fileID: 0}
 --- !u!224 &805812293 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
@@ -1667,7 +1739,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1397022063
+--- !u!224 &1490586401 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2140684798}
+--- !u!43 &1503439938
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1795,11 +1872,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!224 &1490586401 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
-    type: 2}
-  m_PrefabInternal: {fileID: 2140684798}
 --- !u!224 &1546495050 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
@@ -1899,7 +1971,7 @@ Prefab:
     - target: {fileID: 3300000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1397022063}
+      objectReference: {fileID: 1503439938}
     - target: {fileID: 11400000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: mInitializedInEditor
       value: 1
@@ -1907,7 +1979,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1969970724}
+      objectReference: {fileID: 547617457}
     - target: {fileID: 400000, guid: 384a0d8cc71cef74a873b3353337ea2c, type: 2}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2113,32 +2185,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
   m_IsPrefabParent: 0
---- !u!21 &1969970724
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: stones_scaledMaterial
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 2800000, guid: 2a3f66deacb64602abbcd2289aeed23e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1001 &2064628374
 Prefab:
   m_ObjectHideFlags: 0

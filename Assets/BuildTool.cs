@@ -5,6 +5,7 @@ using System;
 public class BuildTool : AbstractTool {
 
     public GameObject blockPrefab;
+    public Texture currentTexture;
 
     protected override void Use(Block blockToUseToolOn, MCFace face)
     {
@@ -42,7 +43,12 @@ public class BuildTool : AbstractTool {
         if (success)
         {
             Debug.Log("Placing Block on " + face);
-            Instantiate(blockPrefab, newPosition, Quaternion.identity);
+            GameObject blockGO = Instantiate(blockPrefab, newPosition, Quaternion.identity);
+            //update texture if user selected a custom one.
+            if (currentTexture != null)
+            {
+                blockGO.GetComponent<Renderer>().material.mainTexture = currentTexture;
+            }
         }
     }
 }
