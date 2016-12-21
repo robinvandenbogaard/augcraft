@@ -9,7 +9,7 @@ public class BlockSelectionManager : MonoBehaviour
     public GameObject selectionBlock;
 
     //three events that other scripts can statically hook on to.
-    public delegate void TextureChangeAction(string newTextureToBuildWith);
+    public delegate void TextureChangeAction(SupportedTexture newTextureToBuildWith);
     public static event TextureChangeAction OnTextureChanged;
     
     public delegate void SelectDestroyToolAction();
@@ -33,7 +33,7 @@ public class BlockSelectionManager : MonoBehaviour
         selectionBlock.SetActive(true);
 
         bool isRemovalTexture = false; //TODO: determine this value based on Sprite
-        string newTextureToBuildWith = "dirt"; //TODO: map Sprites to Enum values for supported textures
+        SupportedTexture newTextureToBuildWith = SupportedTexture.DIRT; //TODO: map Sprites to Enum values for supported textures
 
         if (isRemovalTexture)
         {

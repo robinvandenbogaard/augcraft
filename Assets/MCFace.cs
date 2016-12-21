@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum MCFace
+﻿public enum MCFace
 {
     None,
     Up,

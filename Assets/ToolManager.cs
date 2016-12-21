@@ -15,7 +15,7 @@ public class ToolManager : MonoBehaviour {
 
     }
 
-    private void SelectOtherTexture(string newTextureToBuildWith)
+    private void SelectOtherTexture(SupportedTexture newTextureToBuildWith)
     {
         //TODO implement
     }
