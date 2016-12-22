@@ -6,6 +6,7 @@ public class ToolManager : MonoBehaviour {
 
     public AbstractTool currentTool;
     public AbstractTool[] tools;
+    public Texture[] textures = new Texture[5];
 
     public string rootTexturePath;
 
@@ -14,48 +15,46 @@ public class ToolManager : MonoBehaviour {
         BlockSelectionManager.OnBuildToolSelected += SelectBuildTool;
         BlockSelectionManager.OnDestroyToolSelected += SelectDestroyTool;
         BlockSelectionManager.OnTextureChanged += SelectOtherTexture;
-
     }
 
     private void SelectOtherTexture(SupportedTexture newTextureToBuildWith)
     {
         BuildTool buildTool = tools[0] as BuildTool;
         PaintTool paintTool = tools[2] as PaintTool;
-        string textureName;
+        Texture newTexture;
         switch (newTextureToBuildWith)
         {
             case SupportedTexture.DIRT:
-                textureName = "blocks/dirt";
+                newTexture = textures[0];
                 break;
             case SupportedTexture.SAND:
-                textureName = "blocks/sand";
+                newTexture = textures[1];
                 break;
             case SupportedTexture.STONE:
-                textureName = "blocks/stone";
+                newTexture = textures[2];
                 break;
             case SupportedTexture.COBBLESTONE:
-                textureName = "blocks/cobblestone";
+                newTexture = textures[3];
                 break;
             case SupportedTexture.PLANKS_OAK:
             default:
-                textureName = "blocks/planks_oak";
+                newTexture = textures[4];
                 break;
         }
-        //FIXME: instantiate texture
-        buildTool.currentTexture = Resources.Load(rootTexturePath + textureName) as Texture;
-        paintTool.texture = Resources.Load(rootTexturePath + textureName) as Texture;
-        Debug.Log("Selecting new texture: " + textureName);
-    }
-
-    private void SelectDestroyTool()
-    {
-        currentTool = tools[1];
+        buildTool.currentTexture = newTexture;
+        paintTool.texture = newTexture;
+        Debug.Log("Selecting new texture: " + newTexture);
     }
 
     private void SelectBuildTool()
     {
         if (currentTool != tools[0])
             currentTool = tools[0];
+    }
+
+    private void SelectDestroyTool()
+    {
+        currentTool = tools[1];
     }
 
     void BlockGotClicked(Block block, MCFace face)

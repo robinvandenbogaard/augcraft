@@ -380,7 +380,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1100832474429752, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
       propertyPath: m_Name
-      value: DirtBlock3
+      value: StoneBlock
       objectReference: {fileID: 0}
     - target: {fileID: 114553740270524248, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -411,7 +411,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: b2e3e2736157be64985d64406a646d2f,
+      objectReference: {fileID: 21300000, guid: 8c448bed56188934080f9508be7230fb,
         type: 3}
     - target: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -428,6 +428,12 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.7949748
       objectReference: {fileID: 0}
+    - target: {fileID: 114966624189433868, guid: cdf0c2aa195e9d749992d5f54246afe4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8c448bed56188934080f9508be7230fb,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
   m_IsPrefabParent: 0
@@ -868,13 +874,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1100832474429752, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
       propertyPath: m_Name
-      value: PlansOak3
+      value: RemoveBlock
       objectReference: {fileID: 0}
     - target: {fileID: 114966624189433868, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 30ded82bee68a0c4386667c6154154f7,
+      objectReference: {fileID: 21300000, guid: 3582e7d8b5cf011429c6328c24a51b6f,
         type: 3}
     - target: {fileID: 114553740270524248, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -905,7 +911,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 30ded82bee68a0c4386667c6154154f7,
+      objectReference: {fileID: 21300000, guid: 3582e7d8b5cf011429c6328c24a51b6f,
         type: 3}
     - target: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -957,7 +963,13 @@ MonoBehaviour:
   - {fileID: 724546150}
   - {fileID: 1126812148}
   - {fileID: 269532997}
-  rootTexturePath: minecraft-textures/minecraft/textures/
+  textures:
+  - {fileID: 2800000, guid: a4ba328d344a8be44a2f852c48004321, type: 3}
+  - {fileID: 2800000, guid: 5fa9c93f27edabe469af40f3db74c493, type: 3}
+  - {fileID: 2800000, guid: 93e96f31619b7b14db4e996e9c9318ed, type: 3}
+  - {fileID: 2800000, guid: 1a48fc9afb8d4ae408184e66db7c81db, type: 3}
+  - {fileID: 2800000, guid: b93a0ffa7064511489d8a1f6fe115561, type: 3}
+  rootTexturePath: minecraft-textures\minecraft\textures\
 --- !u!4 &705530907
 Transform:
   m_ObjectHideFlags: 0
@@ -1318,13 +1330,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1100832474429752, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
       propertyPath: m_Name
-      value: PlansOak2
+      value: CobbleBlock
       objectReference: {fileID: 0}
     - target: {fileID: 114966624189433868, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 30ded82bee68a0c4386667c6154154f7,
+      objectReference: {fileID: 21300000, guid: fe0a2b12303ec0344a3d274f3e36fd90,
         type: 3}
     - target: {fileID: 114553740270524248, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -1355,7 +1367,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 30ded82bee68a0c4386667c6154154f7,
+      objectReference: {fileID: 21300000, guid: fe0a2b12303ec0344a3d274f3e36fd90,
         type: 3}
     - target: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -1563,7 +1575,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1100832474429752, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
       propertyPath: m_Name
-      value: DirtBlock2
+      value: SandBlock
       objectReference: {fileID: 0}
     - target: {fileID: 114553740270524248, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -1594,7 +1606,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: b2e3e2736157be64985d64406a646d2f,
+      objectReference: {fileID: 21300000, guid: ea1376826e123174d9729b659bd5bd59,
         type: 3}
     - target: {fileID: 224140405916699066, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -1611,6 +1623,12 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.7949748
       objectReference: {fileID: 0}
+    - target: {fileID: 114966624189433868, guid: cdf0c2aa195e9d749992d5f54246afe4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea1376826e123174d9729b659bd5bd59,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
   m_IsPrefabParent: 0
@@ -2134,7 +2152,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1100832474429752, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
       propertyPath: m_Name
-      value: PlansOak1
+      value: PlanksOakBlock
       objectReference: {fileID: 0}
     - target: {fileID: 114553740270524248, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
@@ -2355,7 +2373,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1100832474429752, guid: cdf0c2aa195e9d749992d5f54246afe4, type: 2}
       propertyPath: m_Name
-      value: DirtBlock1
+      value: DirtBlock
       objectReference: {fileID: 0}
     - target: {fileID: 114553740270524248, guid: cdf0c2aa195e9d749992d5f54246afe4,
         type: 2}
