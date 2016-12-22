@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,8 +33,8 @@ public class BlockSelectionManager : MonoBehaviour
         selectionPanel.SetActive(false);
         selectionBlock.SetActive(true);
 
-        bool isRemovalTexture = false; //TODO: determine this value based on Sprite
-        SupportedTexture newTextureToBuildWith = SupportedTexture.DIRT; //TODO: map Sprites to Enum values for supported textures
+        bool isRemovalTexture = selectedImage.name.Equals("cube remove"); //TODO: determine this value based on Sprite
+        SupportedTexture newTextureToBuildWith = GetSupportedTexture(selectedImage.name); //TODO: map Sprites to Enum values for supported textures
 
         if (isRemovalTexture)
         {
@@ -54,5 +55,30 @@ public class BlockSelectionManager : MonoBehaviour
             }
         }
         Debug.Log("ShowBlockSelection");
+    }
+
+    private SupportedTexture GetSupportedTexture(string name)
+    {
+        SupportedTexture st;
+        switch (name)
+        {
+            case "cube cobblestone":
+                st = SupportedTexture.COBBLESTONE;
+                break;
+            case "cube sand":
+                st = SupportedTexture.SAND;
+                break;
+            case "cube dirt":
+                st = SupportedTexture.DIRT;
+                break;
+            case "cube stone":
+                st = SupportedTexture.STONE;
+                break;
+            case "cube planks oak":
+            default:
+                st = SupportedTexture.PLANKS_OAK;
+                break;
+        }
+        return st;
     }
 }
