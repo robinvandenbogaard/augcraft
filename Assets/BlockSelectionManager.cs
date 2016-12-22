@@ -19,11 +19,18 @@ public class BlockSelectionManager : MonoBehaviour
     public delegate void SelectBuildToolAction();
     public static event SelectBuildToolAction OnBuildToolSelected;
 
+    public delegate void SelectingToolAction();
+    public static event SelectingToolAction OnSelectingTool;
+
     public void ShowBlockSelection()
     {
         selectionPanel.SetActive(true);
         selectionBlock.SetActive(false);
         Debug.Log("ShowBlockSelection");
+        if (OnSelectingTool != null)
+        {
+            OnSelectingTool();
+        }
     }
 
     public void BlockSelect(Sprite selectedImage)

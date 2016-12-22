@@ -15,6 +15,12 @@ public class ToolManager : MonoBehaviour {
         BlockSelectionManager.OnBuildToolSelected += SelectBuildTool;
         BlockSelectionManager.OnDestroyToolSelected += SelectDestroyTool;
         BlockSelectionManager.OnTextureChanged += SelectOtherTexture;
+        BlockSelectionManager.OnSelectingTool += DisableTool;
+    }
+
+    private void DisableTool()
+    {
+        currentTool = null;
     }
 
     private void SelectOtherTexture(SupportedTexture newTextureToBuildWith)
